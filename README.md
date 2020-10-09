@@ -17,6 +17,7 @@ Slackのほとんどのチャンネルから退出できるコマンドライン
 zennzenn leave
 
 or
+
 // rejoin channels
 zennzenn rejoin
 ```
@@ -35,5 +36,5 @@ not_leave_channels=["C0XXXXX","todo","#android"]
 ## Build
 
 ```
-dart2native bin/slack_leave_rejoin_channel.dart -o zenzen
+dart2native bin/zennzenn.dart -o zenzen
 ```
