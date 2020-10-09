@@ -1,14 +1,8 @@
 ## zenzen
 
-Slackのほとんどのチャンネルから退出できるコマンドラインツールです。
+今現在入っているほとんどのSlackチャンネルから簡単に退出できるコマンドラインツールです。
 
-退出したチャンネル情報はJSONファイルに出力されるので、そのJSONファイルを利用して、退出したチャンネルにまとめて再入場することもできます。
-
-以下のチャンネルは自動退出対象外です。
-
-- Archived channel 
-- Private channel 
-- General channel
+退出したチャンネル情報はJSONファイルに出力されるので、そのJSONファイルを利用して、退出したチャンネルにまとめて再入場するコマンドも用意しています。
 
 ## Run
 
@@ -21,6 +15,28 @@ or
 // rejoin channels
 zennzenn rejoin
 ```
+
+### zennzenn leave
+
+今現在入っているほとんどのSlackチャンネルから退出します。
+
+以下のチャンネルは自動退出対象外です。
+
+- Archived channel 
+- Private channel 
+- General channel
+
+また、zennzenn leave実行時に、退出したくないチャンネルの情報をconfig fileに記載できます。
+
+退出したチャンネル情報はJSONファイルに出力されます。このファイルは、zennzenn rejoin実行時に必要になります。
+
+### zennzenn rejoin
+
+zennzenn leave実行時に出力される退出したチャンネル情報が記載されたJSONファイルを利用します。
+
+そのJSONに記載されているチャンネルすべてに再入場します。
+
+ファイルの指定はconfig fileに記載します。
 
 ## Setup
 
@@ -57,8 +73,8 @@ user_id="UXXXXXX"
 token="xoxp-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
 
 # zennzenn leave実行時に、退出したSlackチャンネル情報がJSONファイルで書き出されます。
-zennzenn rejoinで、そのJSONに記載されているチャンネルすべてに再入場します。
- (required : zennzenn rejoin実行時)
+# zennzenn rejoinで、そのJSONに記載されているチャンネルすべてに再入場します。
+# (required : zennzenn rejoin実行時)
 rejoin_channel_json_file="XXXXXXXXXXX.json"
 
 # zennzenn leave実行時に、退出したくないチャンネルの情報を記載できます (optional)
