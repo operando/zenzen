@@ -26,13 +26,13 @@ zennzenn rejoin
 - Private channel 
 - General channel
 
-また、zennzenn leave実行時に、退出したくないチャンネルの情報をconfig fileに記載できます。
+また、`zennzenn leave`実行時に、退出したくないチャンネルの情報をconfig fileに記載できます。
 
-退出したチャンネル情報はJSONファイルに出力されます。このファイルは、zennzenn rejoin実行時に必要になります。
+退出したチャンネル情報はJSONファイルに出力されます。このファイルは`zennzenn rejoin`実行時に必要になります。
 
 ### zennzenn rejoin
 
-zennzenn leave実行時に出力される退出したチャンネル情報が記載されたJSONファイルを利用します。
+`zennzenn leave`実行時に出力される退出したチャンネル情報が記載されたJSONファイルを利用します。
 
 そのJSONに記載されているチャンネルすべてに再入場します。
 
