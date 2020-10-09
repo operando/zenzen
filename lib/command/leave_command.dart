@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:args/command_runner.dart';
-import 'package:slack_leave_rejoin_channel/slack/slack.dart';
+import 'package:zenzen/slack/slack.dart';
 
 class LeaveCommand extends Command {
   @override

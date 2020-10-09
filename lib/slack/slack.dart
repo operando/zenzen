@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:slack_leave_rejoin_channel/slack/channel.dart';
-import 'package:slack_leave_rejoin_channel/slack/user_conversation.dart';
+import 'package:zenzen/slack/channel.dart';
+import 'package:zenzen/slack/user_conversation.dart';
 
 class Slack {
   static const String SLACK_API = 'https://slack.com/api/';

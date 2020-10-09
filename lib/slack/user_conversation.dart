@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:slack_leave_rejoin_channel/slack/channel.dart';
+import 'package:zenzen/slack/channel.dart';
 
 part 'user_conversation.g.dart';
 

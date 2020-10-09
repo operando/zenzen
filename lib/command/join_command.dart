@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:slack_leave_rejoin_channel/slack/channel.dart';
-import 'package:slack_leave_rejoin_channel/slack/slack.dart';
+import 'package:zenzen/slack/channel.dart';
+import 'package:zenzen/slack/slack.dart';
 
 class JoinCommand extends Command {
   @override
