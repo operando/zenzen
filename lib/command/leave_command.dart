@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:args/command_runner.dart';
+import 'package:logging/logging.dart';
 import 'package:zenzen/slack/slack.dart';
 
 class LeaveCommand extends Command {
@@ -9,6 +10,7 @@ class LeaveCommand extends Command {
   @override
   String name = 'leave';
 
+  final log = Logger('leave');
   final String token;
   final String userId;
   final UnmodifiableListView<dynamic> notLeaveChannels;
@@ -31,6 +33,7 @@ class LeaveCommand extends Command {
                       e.replaceFirst('#', '') == channel.name);
             }))
         .forEach((channel) async {
+      log.fine('leave channel : ${channel.name}');
       await slack.leave(channel);
     });
   }
