@@ -2,6 +2,7 @@ import 'dart:collection';
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
+import 'package:logging/logging.dart';
 import 'package:toml/loader.dart';
 import 'package:toml/loader/fs.dart';
 import 'package:zenzen/command/join_command.dart';
@@ -17,6 +18,16 @@ Future<void> main(List<String> arguments) async {
     print('slack token is null.');
     return;
   }
+
+  final logLevelName =
+      (cfg['logging']['level'] as String ?? Level.OFF.name).toLowerCase();
+  final logLevel = Level.LEVELS.firstWhere(
+      (element) => element.name.toLowerCase() == logLevelName,
+      orElse: () => Level.OFF);
+  Logger.root.level = logLevel;
+  Logger.root.onRecord.listen((record) {
+    print('${record.level.name}: ${record.time}: ${record.message}');
+  });
 
   final version = VersionCommand();
   final cr = CommandRunner('zenzen',
