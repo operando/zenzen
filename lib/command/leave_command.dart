@@ -1,6 +1,9 @@
 import 'dart:collection';
+import 'dart:convert';
+import 'dart:io';
 
 import 'package:args/command_runner.dart';
+import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
 import 'package:zenzen/slack/slack.dart';
 
@@ -25,14 +28,21 @@ class LeaveCommand extends Command {
       print('channel is empty.');
       return;
     }
-    channels
+
+    final leaveChannel = channels
         .where((channel) => !notLeaveChannels.whereType<String>().any((e) {
               return e == channel.name ||
                   e == channel.id ||
                   (e.startsWith('#') &&
                       e.replaceFirst('#', '') == channel.name);
             }))
-        .forEach((channel) async {
+        .toList();
+
+    final now = DateFormat('yyyy_MM_dd_HH_mm_ss').format(DateTime.now());
+    final f = File('leave-channel-list-${now}.json');
+    await f.writeAsString(jsonEncode(leaveChannel));
+
+    leaveChannel.forEach((channel) async {
       log.fine('leave channel : ${channel.name}');
       await slack.leave(channel);
     });
