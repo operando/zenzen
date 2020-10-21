@@ -80,7 +80,13 @@ token="xoxp-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 rejoin_channel_json_file="XXXXXXXXXXX.json"
 
 # zenzen leave実行時に、退出したくないチャンネルの情報を記載できます (optional)
-not_leave_channels=["C0XXXXX","todo","#android"] 
+not_leave_channels=["C0XXXXX","todo","#android"]
+
+# コマンド実行中のログをどのレベルで表示するか指定できます
+# 設定値一覧 : all, finest, finer, fine, config, info, warning, severe, shout, off
+# default log level : off
+[logging]
+level="all" 
 ```
 
 `config.toml`の内容に問題がなければ、`zenzen leave` と `zenzen rejoin` が動くようになります。
