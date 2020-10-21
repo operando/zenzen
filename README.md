@@ -10,15 +10,15 @@
 
 ```
 // leave channels
-zennzenn leave
+./zenzen leave
 
 or
 
 // rejoin channels
-zennzenn rejoin
+./zenzen rejoin
 ```
 
-### zennzenn leave
+### zenzen leave
 
 今現在入っているほとんどのSlackチャンネルから退出します。
 
@@ -28,13 +28,13 @@ zennzenn rejoin
 - Private channel 
 - General channel
 
-また、`zennzenn leave`実行時に、退出したくないチャンネルの情報をconfig fileに記載できます。
+また、`zenzen leave`実行時に、退出したくないチャンネルの情報をconfig fileに記載できます。
 
-退出したチャンネル情報はJSONファイルに出力されます。このファイルは`zennzenn rejoin`実行時に必要になります。
+退出したチャンネル情報はJSONファイルに出力されます。このファイルは`zenzen rejoin`実行時に必要になります。
 
-### zennzenn rejoin
+### zenzen rejoin
 
-`zennzenn leave`実行時に出力される退出したチャンネル情報が記載されたJSONファイルを利用します。
+`zenzen leave`実行時に出力される退出したチャンネル情報が記載されたJSONファイルを利用します。
 
 そのJSONに記載されているチャンネルすべてに再入場します。
 
@@ -62,7 +62,7 @@ Slack Appを作成したら、User Token Scopesを以下の画像のように設
 
 ### Create config file
 
-zennzennコマンドを実行するディレクトリと同じところに、`config.toml` を作成します。
+zenzenコマンドを実行するディレクトリと同じところに、`config.toml` を作成します。
 
 `config.toml` の内容は以下のように書きます。
 
@@ -74,20 +74,20 @@ user_id="UXXXXXX"
 # Slack AppのOAuth Access Token (required)
 token="xoxp-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
 
-# zennzenn leave実行時に、退出したSlackチャンネル情報がJSONファイルで書き出されます。
-# zennzenn rejoinで、そのJSONに記載されているチャンネルすべてに再入場します。
-# (required : zennzenn rejoin実行時)
+# zenzen leave実行時に、退出したSlackチャンネル情報がJSONファイルで書き出されます。
+# zenzen rejoinで、そのJSONに記載されているチャンネルすべてに再入場します。
+# (required : zenzen rejoin実行時)
 rejoin_channel_json_file="XXXXXXXXXXX.json"
 
-# zennzenn leave実行時に、退出したくないチャンネルの情報を記載できます (optional)
+# zenzen leave実行時に、退出したくないチャンネルの情報を記載できます (optional)
 not_leave_channels=["C0XXXXX","todo","#android"] 
 ```
 
-`config.toml`の内容に問題がなければ、`zennzenn leave` と `zennzenn rejoin` が動くようになります。
+`config.toml`の内容に問題がなければ、`zenzen leave` と `zenzen rejoin` が動くようになります。
 
 
 ## Build
 
 ```
-dart2native bin/zennzenn.dart -o zenzen
+dart2native bin/zenzen.dart -o zenzen
 ```
